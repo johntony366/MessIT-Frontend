@@ -2,8 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
-
-import "../styles/DatePicker.css";
+import theme from "../styles/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/favicon.webp" />
       </Head>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
     </>

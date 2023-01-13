@@ -55,11 +55,11 @@ const MessType = () => {
   }
 
   function ChooseHostel() {
-    const options = ["mens", "ladies"];
+    const options = ["MH", "LH"];
 
     const { getRootProps, getRadioProps } = useRadioGroup({
       name: "hostel",
-      defaultValue: "mens",
+      defaultValue: "LH",
     });
 
     const group = getRootProps();
@@ -115,7 +115,7 @@ const MessType = () => {
             e.preventDefault();
             const hostel = e.target.hostel.value;
             const messType = e.target.messType.value;
-            const messDetails = hostel + "-" + messType;
+            const messDetails = hostel + " - " + messType;
             localStorage.setItem("mess", messDetails);
             router.push("/dashboard");
           }}
@@ -128,13 +128,13 @@ const MessType = () => {
             <FormControl as="fieldset" isRequired>
               <FormLabel as="legend">Mess type</FormLabel>
               <Select name="messType">
-                <option value="special" style={{ color: "black" }}>
+                <option value="Special Mess" style={{ color: "black" }}>
                   Special Mess
                 </option>
-                <option value="veg" style={{ color: "black" }}>
+                <option value="Veg Mess" style={{ color: "black" }}>
                   Veg Mess
                 </option>
-                <option value="nonveg" style={{ color: "black" }}>
+                <option value="Non-Veg Mess" style={{ color: "black" }}>
                   Non-Veg Mess
                 </option>
               </Select>
