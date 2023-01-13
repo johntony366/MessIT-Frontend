@@ -10,6 +10,7 @@ import {
   lastDayOfMonth,
   startOfMonth,
 } from "date-fns";
+import hexToRgb from "../../helpers/hexToRgb";
 
 const DateView = ({
   startDate,
@@ -25,8 +26,8 @@ const DateView = ({
   };
   const selectedStyle = {
     fontWeight: "bold",
-    width: "50px",
-    height: "50px",
+    width: "55px",
+    height: "55px",
     borderRadius: "50%",
     border: `2px solid ${primaryColor}`,
     color: primaryColor,

@@ -17,6 +17,7 @@ import {
   Heading,
   Flex,
   IconButton,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -25,6 +26,13 @@ import ToggleColorMode from "./ToggleColorMode";
 const SideDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+
+  const iconColor = useColorModeValue("black", "white");
+  const iconHoverColor = useColorModeValue("gray.200", "");
+
+  const drawerBg = useColorModeValue("gray.100", "#212121");
+  const drawerColor = useColorModeValue("gray.700", "white");
+  const drawerButtonHoverBg = useColorModeValue("gray.300", "#616161");
 
   return (
     <>
@@ -36,14 +44,15 @@ const SideDrawer = () => {
         icon={<HamburgerIcon />}
         variant="outline"
         borderColor={"rgba(0,0,0,0)"}
+        color={iconColor}
         _hover={{
-          bg: "#616161",
+          bg: iconHoverColor,
         }}
         onClick={onOpen}
       />
       <Drawer onClose={onClose} isOpen={isOpen} size="sm" placement="left">
         <DrawerOverlay />
-        <DrawerContent bg="#212121" color="white">
+        <DrawerContent bg={drawerBg} color={drawerColor}>
           <DrawerCloseButton />
           {/* <DrawerHeader borderBottomWidth="1px">
             <Heading size="lg">I am the Header!</Heading>
@@ -55,8 +64,8 @@ const SideDrawer = () => {
             <VStack mt={4} mb={16} align="start">
               <Button
                 w="100%"
-                bg="#212121"
-                _hover={{ bg: "#616161" }}
+                bg="transparent"
+                _hover={{ bg: drawerButtonHoverBg }}
                 justifyContent="flex-start"
                 onClick={() => {
                   if (localStorage) {

@@ -1,19 +1,15 @@
 import {
   Box,
   Button,
-  Card,
-  CardBody,
-  CardFooter,
   FormControl,
   FormLabel,
   HStack,
   Image,
-  RadioGroup,
   Select,
   Text,
+  useColorModeValue,
   useRadio,
   useRadioGroup,
-  UseRadioProps,
   VStack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -21,6 +17,12 @@ import React from "react";
 
 const MessType = () => {
   const router = useRouter();
+
+  const bg = useColorModeValue("gray.200", "#1a202e");
+  const color = useColorModeValue("black", "white");
+  const textHighlightColor = useColorModeValue("#3182CE", "#60a5fa");
+  const messCardBg = useColorModeValue("gray.100", "#1a202e");
+  const hostelCheckedBg = useColorModeValue("blue.500", "teal.600");
 
   function RadioCard(props: any) {
     const { getInputProps, getCheckboxProps } = useRadio(props);
@@ -37,8 +39,9 @@ const MessType = () => {
           borderWidth="1px"
           borderRadius="md"
           boxShadow="md"
+          bg={messCardBg}
           _checked={{
-            bg: "teal.600",
+            bg: hostelCheckedBg,
             color: "white",
             borderColor: "teal.600",
           }}
@@ -59,7 +62,6 @@ const MessType = () => {
 
     const { getRootProps, getRadioProps } = useRadioGroup({
       name: "hostel",
-      defaultValue: "LH",
     });
 
     const group = getRootProps();
@@ -75,9 +77,11 @@ const MessType = () => {
                 <Image
                   src={"/images/man.png"}
                   alt={"Animated picture of a man"}
-                  w="64px"
+                  w={{ base: "64px", lg: "84px" }}
                 />
-                <Text>Men&apos;s Hostel</Text>
+                <Text fontSize={{ base: "16px", lg: "24px" }}>
+                  Men&apos;s Hostel
+                </Text>
               </VStack>
             </RadioCard>
           );
@@ -92,9 +96,11 @@ const MessType = () => {
                 <Image
                   src={"/images/woman.png"}
                   alt={"Animated picture of a woman"}
-                  w="64px"
+                  w={{ base: "64px", lg: "84px" }}
                 />
-                <Text>Ladies&apos; Hostel</Text>
+                <Text fontSize={{ base: "16px", lg: "24px" }}>
+                  Ladies&apos; Hostel
+                </Text>
               </VStack>
             </RadioCard>
           );
@@ -104,12 +110,15 @@ const MessType = () => {
   }
 
   return (
-    <Box h="100vh" w="100vw" bg="#1a202e" p={12}>
-      <VStack h="100%" justify="center" gap={6} color="white">
-        <Text color="white" fontSize="28px">
-          First, we need some <b style={{ color: "#60a5fa" }}>information</b>
+    <Box h="100vh" w="100vw" bg={bg} color={color} p={12}>
+      <VStack h="100%" justify="center" gap={6}>
+        <Text fontSize={{ base: "36px", lg: "48px" }}>
+          First, we need some{" "}
+          <b style={{ color: textHighlightColor }}>information</b>
         </Text>
-        <Text>This is required to find you the right mess menu</Text>
+        <Text fontSize={{ base: "16px", lg: "24px" }}>
+          This is required to find you the right mess menu
+        </Text>
         <form
           onSubmit={(e: any) => {
             e.preventDefault();
@@ -122,24 +131,33 @@ const MessType = () => {
         >
           <VStack gap={6}>
             <FormControl as="fieldset" isRequired>
-              <FormLabel as="legend">Hostel type</FormLabel>
+              <FormLabel as="legend" fontSize={{ base: "16px", lg: "24px" }}>
+                Hostel type
+              </FormLabel>
               <ChooseHostel />
             </FormControl>
             <FormControl as="fieldset" isRequired>
-              <FormLabel as="legend">Mess type</FormLabel>
-              <Select name="messType">
-                <option value="Special Mess" style={{ color: "black" }}>
-                  Special Mess
+              <FormLabel as="legend" fontSize={{ base: "16px", lg: "24px" }}>
+                Mess type
+              </FormLabel>
+              <Select
+                name="messType"
+                defaultValue={""}
+                fontSize={{ base: "16px", lg: "24px" }}
+              >
+                <option hidden disabled value="">
+                  Select mess type
                 </option>
-                <option value="Veg Mess" style={{ color: "black" }}>
-                  Veg Mess
-                </option>
-                <option value="Non-Veg Mess" style={{ color: "black" }}>
-                  Non-Veg Mess
-                </option>
+                <option value="Special Mess">Special Mess</option>
+                <option value="Veg Mess">Veg Mess</option>
+                <option value="Non-Veg Mess">Non-Veg Mess</option>
               </Select>
             </FormControl>
-            <Button colorScheme={"blue"} type="submit">
+            <Button
+              colorScheme={"blue"}
+              type="submit"
+              fontSize={{ base: "16px", lg: "24px" }}
+            >
               Submit
             </Button>
           </VStack>

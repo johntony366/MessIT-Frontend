@@ -7,6 +7,7 @@ import {
   CardHeader,
   Heading,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 const MessCard = ({
@@ -18,18 +19,19 @@ const MessCard = ({
   menu: String;
   timing: String;
 }) => {
+  const cardBg = useColorModeValue("blue.100", "#2d3748");
+  const cardColor = useColorModeValue("black", "white");
+
   return (
     <Card
       variant="elevated"
-      color="white"
-      bg="#2d3748"
+      bg={cardBg}
       borderInlineStart="6px solid #3669ee"
-      w="100%"
+      maxW={"500px"}
+      color={cardColor}
     >
       <CardHeader pb={2}>
-        <Heading color="white" size="lg">
-          {meal}
-        </Heading>
+        <Heading size="lg">{meal}</Heading>
       </CardHeader>
       <CardBody py={2}>
         <Text>{menu}</Text>

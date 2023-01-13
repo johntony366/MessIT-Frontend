@@ -29,6 +29,11 @@
   padding: 0;
   margin-bottom: 13px;
 }
+
+.button div {
+  transform: translateY(-8%);
+}
+
 .dateListScrollable {
   display: flex;
   overflow-x: scroll;
@@ -71,6 +76,10 @@
   width: 45px;
   height: 49px;
   flex-shrink: 0;
+}
+
+.dateDayItem.light {
+  color: rgb(0, 0, 0);
 }
 
 .daysContainer {

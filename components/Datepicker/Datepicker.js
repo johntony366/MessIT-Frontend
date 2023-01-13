@@ -82,7 +82,7 @@ const DatePicker = (props) => {
           style: buttonStyle,
           onClick: prev,
         },
-        "<"
+        /*#__PURE__*/ React.createElement("div", {}, "<")
       )
     ),
     /*#__PURE__*/ React.createElement(
@@ -106,7 +106,7 @@ const DatePicker = (props) => {
           style: buttonStyle,
           onClick: next,
         },
-        ">"
+        /*#__PURE__*/ React.createElement("div", {}, ">")
       )
     )
   );
