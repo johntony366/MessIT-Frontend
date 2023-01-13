@@ -3,9 +3,12 @@ import React from "react";
 import SideDrawer from "./SideDrawer";
 
 const Navbar = ({ messType }: { messType: String }) => {
-  const navbarBg = useColorModeValue("gray.300", "#212121");
+  const navbarBg = useColorModeValue("gray.200", "#1a202e");
   const navbarColor = useColorModeValue("gray.700", "gray.100");
-  // const navbarBorderColor = useColorModeValue("gray.400", "#424242");
+  const navbarBorderColor = useColorModeValue(
+    "rgba(143, 149, 156, 0.28)",
+    "rgba(143, 149, 156, 0.15)"
+  );
 
   return (
     <Flex
@@ -15,7 +18,8 @@ const Navbar = ({ messType }: { messType: String }) => {
       w="100vw"
       h="75px"
       color={navbarColor}
-      boxShadow="md"
+      borderBottom="1px solid"
+      borderColor={navbarBorderColor}
     >
       <SideDrawer />
       <Heading size="lg">{messType}</Heading>
