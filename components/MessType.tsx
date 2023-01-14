@@ -16,99 +16,101 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import React from "react";
 
-const MessType = () => {
+function RadioCard(props: any) {
+  const messCardBg = useColorModeValue("gray.100", "#1a202e");
+  const hostelCheckedBg = useColorModeValue("blue.500", "teal.600");
+
+  const { getInputProps, getCheckboxProps } = useRadio(props);
+  const { children } = props;
+
+  const input = getInputProps();
+  const checkbox = getCheckboxProps();
+
+  return (
+    <Box as="label">
+      <input {...input} />
+      <Box
+        {...checkbox}
+        cursor="pointer"
+        borderWidth="1px"
+        borderRadius="md"
+        boxShadow="md"
+        bg={messCardBg}
+        _checked={{
+          bg: hostelCheckedBg,
+          color: "white",
+          borderColor: "teal.600",
+        }}
+        _focus={{
+          boxShadow: "outline",
+        }}
+        px={5}
+        py={3}
+      >
+        {children}
+      </Box>
+    </Box>
+  );
+}
+
+function ChooseHostel() {
+  const options = ["MH", "LH"];
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "hostel",
+  });
+
+  const group = getRootProps();
+
+  return (
+    <HStack {...group}>
+      {(() => {
+        const value = options[0];
+        const radio = getRadioProps({ value });
+        return (
+          <RadioCard key={value} {...radio}>
+            <VStack align="center">
+              <Image
+                src="/images/man.png"
+                alt="Animated picture of a man"
+                w={{ base: "64px", lg: "84px" }}
+              />
+              <Text fontSize={{ base: "16px", lg: "24px" }}>
+                Men&apos;s Hostel
+              </Text>
+            </VStack>
+          </RadioCard>
+        );
+      })()}
+
+      {(() => {
+        const value = options[1];
+        const radio = getRadioProps({ value });
+        return (
+          <RadioCard key={value} {...radio}>
+            <VStack align="center">
+              <Image
+                src="/images/woman.png"
+                alt="Animated picture of a woman"
+                w={{ base: "64px", lg: "84px" }}
+              />
+              <Text fontSize={{ base: "16px", lg: "24px" }}>
+                Ladies&apos; Hostel
+              </Text>
+            </VStack>
+          </RadioCard>
+        );
+      })()}
+    </HStack>
+  );
+}
+
+function MessType() {
   const router = useRouter();
 
   const bg = useColorModeValue("white", "#1a202e");
   const color = useColorModeValue("black", "white");
   const textHighlightColor = useColorModeValue("#3182CE", "#60a5fa");
-  const messCardBg = useColorModeValue("gray.100", "#1a202e");
-  const hostelCheckedBg = useColorModeValue("blue.500", "teal.600");
-
-  function RadioCard(props: any) {
-    const { getInputProps, getCheckboxProps } = useRadio(props);
-
-    const input = getInputProps();
-    const checkbox = getCheckboxProps();
-
-    return (
-      <Box as="label">
-        <input {...input} />
-        <Box
-          {...checkbox}
-          cursor="pointer"
-          borderWidth="1px"
-          borderRadius="md"
-          boxShadow="md"
-          bg={messCardBg}
-          _checked={{
-            bg: hostelCheckedBg,
-            color: "white",
-            borderColor: "teal.600",
-          }}
-          _focus={{
-            boxShadow: "outline",
-          }}
-          px={5}
-          py={3}
-        >
-          {props?.children}
-        </Box>
-      </Box>
-    );
-  }
-
-  function ChooseHostel() {
-    const options = ["MH", "LH"];
-
-    const { getRootProps, getRadioProps } = useRadioGroup({
-      name: "hostel",
-    });
-
-    const group = getRootProps();
-
-    return (
-      <HStack {...group}>
-        {(() => {
-          const value = options[0];
-          const radio = getRadioProps({ value });
-          return (
-            <RadioCard key={value} {...radio}>
-              <VStack align="center">
-                <Image
-                  src={"/images/man.png"}
-                  alt={"Animated picture of a man"}
-                  w={{ base: "64px", lg: "84px" }}
-                />
-                <Text fontSize={{ base: "16px", lg: "24px" }}>
-                  Men&apos;s Hostel
-                </Text>
-              </VStack>
-            </RadioCard>
-          );
-        })()}
-
-        {(() => {
-          const value = options[1];
-          const radio = getRadioProps({ value });
-          return (
-            <RadioCard key={value} {...radio}>
-              <VStack align="center">
-                <Image
-                  src={"/images/woman.png"}
-                  alt={"Animated picture of a woman"}
-                  w={{ base: "64px", lg: "84px" }}
-                />
-                <Text fontSize={{ base: "16px", lg: "24px" }}>
-                  Ladies&apos; Hostel
-                </Text>
-              </VStack>
-            </RadioCard>
-          );
-        })()}
-      </HStack>
-    );
-  }
 
   return (
     <Box h="100vh" w="100vw" bg={bg} color={color} p={12}>
@@ -125,7 +127,7 @@ const MessType = () => {
             e.preventDefault();
             const hostel = e.target.hostel.value;
             const messType = e.target.messType.value;
-            const messDetails = hostel + " - " + messType;
+            const messDetails = `${hostel} - ${messType}`;
             localStorage.setItem("mess", messDetails);
             router.push("/dashboard");
           }}
@@ -143,7 +145,7 @@ const MessType = () => {
               </FormLabel>
               <Select
                 name="messType"
-                defaultValue={""}
+                defaultValue=""
                 fontSize={{ base: "16px", lg: "24px" }}
               >
                 <option hidden disabled value="">
@@ -156,7 +158,7 @@ const MessType = () => {
             </FormControl>
             <Button
               as={motion.button}
-              colorScheme={"blue"}
+              colorScheme="blue"
               type="submit"
               fontSize={{ base: "16px", lg: "24px" }}
               whileHover={{
@@ -170,6 +172,6 @@ const MessType = () => {
       </VStack>
     </Box>
   );
-};
+}
 
 export default MessType;

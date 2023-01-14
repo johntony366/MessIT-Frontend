@@ -1,11 +1,11 @@
 import "../styles/globals.css";
+
+import React from "react";
 import type { AppProps } from "next/app";
-import { Box, ChakraProvider, useColorModeValue } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
-// import theme from "../styles/theme";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
-import ToggleColorMode from "../components/Dashboard/ToggleColorMode";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

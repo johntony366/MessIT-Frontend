@@ -6,12 +6,12 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 import React from "react";
 
-const GetStarted = () => {
+function GetStarted() {
   const router = useRouter();
 
   const bg = useColorModeValue("white", "#1a202e");
@@ -42,7 +42,7 @@ const GetStarted = () => {
         </Text>
         <Button
           as={motion.button}
-          colorScheme={"blue"}
+          colorScheme="blue"
           fontSize={{ base: "16px", lg: "24px" }}
           p={{ base: 4, lg: 8 }}
           onClick={() => {
@@ -57,6 +57,6 @@ const GetStarted = () => {
       </VStack>
     </Box>
   );
-};
+}
 
 export default GetStarted;

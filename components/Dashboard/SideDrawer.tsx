@@ -7,9 +7,7 @@ import {
   Drawer,
   DrawerOverlay,
   DrawerContent,
-  DrawerHeader,
   DrawerBody,
-  DrawerFooter,
   Text,
   Button,
   DrawerCloseButton,
@@ -23,7 +21,7 @@ import { useRouter } from "next/router";
 
 import ToggleColorMode from "./ToggleColorMode";
 
-const SideDrawer = () => {
+function SideDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
 
@@ -43,7 +41,7 @@ const SideDrawer = () => {
         aria-label="Open Menu"
         icon={<HamburgerIcon />}
         variant="outline"
-        borderColor={"rgba(0,0,0,0)"}
+        borderColor="rgba(0,0,0,0)"
         color={iconColor}
         _hover={{
           bg: iconHoverColor,
@@ -92,6 +90,6 @@ const SideDrawer = () => {
       </Drawer>
     </>
   );
-};
+}
 
 export default SideDrawer;

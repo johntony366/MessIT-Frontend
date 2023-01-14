@@ -13,7 +13,7 @@ import {
 import { motion } from "framer-motion";
 import { TimeIcon } from "@chakra-ui/icons";
 
-const MessCard = ({
+function MessCard({
   meal,
   menu,
   timing,
@@ -25,7 +25,7 @@ const MessCard = ({
   timing: String;
   initial: any;
   animate: any;
-}) => {
+}) {
   const cardBg = useColorModeValue("blue.100", "#2d3748");
   const cardColor = useColorModeValue("black", "white");
 
@@ -34,7 +34,7 @@ const MessCard = ({
       variant="elevated"
       bg={cardBg}
       borderInlineStart="6px solid #3669ee"
-      maxW={"500px"}
+      maxW="500px"
       color={cardColor}
       as={motion.div}
       initial={initial}
@@ -54,6 +54,6 @@ const MessCard = ({
       </CardFooter>
     </Card>
   );
-};
+}
 
 export default MessCard;

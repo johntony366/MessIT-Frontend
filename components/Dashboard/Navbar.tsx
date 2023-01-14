@@ -1,8 +1,8 @@
-import { Flex, Heading, IconButton, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Heading, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import SideDrawer from "./SideDrawer";
 
-const Navbar = ({ messType }: { messType: String }) => {
+function Navbar({ messType }: { messType: String }) {
   const navbarBg = useColorModeValue("gray.100", "#1a202e");
   const navbarColor = useColorModeValue("gray.700", "gray.100");
   const navbarBorderColor = useColorModeValue(
@@ -25,6 +25,6 @@ const Navbar = ({ messType }: { messType: String }) => {
       <Heading size="lg">{messType}</Heading>
     </Flex>
   );
-};
+}
 
 export default Navbar;
