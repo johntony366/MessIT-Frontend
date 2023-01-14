@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }}
       >
         <Head>
-          <title>Messit App</title>
+          <title>MessIT</title>
           <meta
             name="description"
             content="Unmess the mess. See your hostel mess menu at the ease of a few clicks"
