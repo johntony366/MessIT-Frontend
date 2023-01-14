@@ -6,10 +6,12 @@ import {
   CardFooter,
   CardHeader,
   Heading,
+  HStack,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { TimeIcon } from "@chakra-ui/icons";
 
 const MessCard = ({
   meal,
@@ -45,7 +47,10 @@ const MessCard = ({
         <Text fontSize={{ base: "lg", lg: "xl" }}>{menu}</Text>
       </CardBody>
       <CardFooter pt={2}>
-        <Text fontSize={{ base: "lg", lg: "xl" }}>{timing}</Text>
+        <HStack>
+          <TimeIcon />
+          <Text fontSize={{ base: "lg", lg: "xl" }}>{timing}</Text>
+        </HStack>
       </CardFooter>
     </Card>
   );
