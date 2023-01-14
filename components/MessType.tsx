@@ -12,6 +12,7 @@ import {
   useRadioGroup,
   VStack,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -154,9 +155,13 @@ const MessType = () => {
               </Select>
             </FormControl>
             <Button
+              as={motion.button}
               colorScheme={"blue"}
               type="submit"
               fontSize={{ base: "16px", lg: "24px" }}
+              whileHover={{
+                scale: 1.2,
+              }}
             >
               Submit
             </Button>

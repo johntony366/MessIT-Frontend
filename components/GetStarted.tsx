@@ -41,11 +41,15 @@ const GetStarted = () => {
           See your <b style={{ color: "#60a5fa" }}>Mess Menu</b> on The Go
         </Text>
         <Button
+          as={motion.button}
           colorScheme={"blue"}
           fontSize={{ base: "16px", lg: "24px" }}
           p={{ base: 4, lg: 8 }}
           onClick={() => {
             router.push("/details");
+          }}
+          whileHover={{
+            scale: 1.2,
           }}
         >
           Get Started →
