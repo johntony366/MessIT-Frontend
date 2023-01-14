@@ -57,7 +57,7 @@ const Dashboard = () => {
     setSelectedDate(d);
   };
 
-  const dashboardBg = useColorModeValue("gray.200", "#1a202e");
+  const dashboardBg = useColorModeValue("white", "#1a202e");
   const dashboardColor = useColorModeValue("black", "white");
 
   const dateLabelColor = useColorModeValue("#2B6CB0", "#4299E1");
@@ -82,9 +82,9 @@ const Dashboard = () => {
         />
 
         {loading ? (
-          <Flex grow={1} align="start" pt="25%">
-            <Spinner />
-          </Flex>
+          <Box flexGrow={1} position="relative">
+            <Spinner position={"absolute"} top="40%" />
+          </Box>
         ) : (
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}

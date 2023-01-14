@@ -18,7 +18,7 @@ import React from "react";
 const MessType = () => {
   const router = useRouter();
 
-  const bg = useColorModeValue("gray.200", "#1a202e");
+  const bg = useColorModeValue("white", "#1a202e");
   const color = useColorModeValue("black", "white");
   const textHighlightColor = useColorModeValue("#3182CE", "#60a5fa");
   const messCardBg = useColorModeValue("gray.100", "#1a202e");

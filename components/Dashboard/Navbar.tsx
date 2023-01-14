@@ -3,7 +3,7 @@ import React from "react";
 import SideDrawer from "./SideDrawer";
 
 const Navbar = ({ messType }: { messType: String }) => {
-  const navbarBg = useColorModeValue("gray.200", "#1a202e");
+  const navbarBg = useColorModeValue("gray.100", "#1a202e");
   const navbarColor = useColorModeValue("gray.700", "gray.100");
   const navbarBorderColor = useColorModeValue(
     "rgba(143, 149, 156, 0.28)",

@@ -68,6 +68,7 @@ const SideDrawer = () => {
                 _hover={{ bg: drawerButtonHoverBg }}
                 justifyContent="flex-start"
                 onClick={() => {
+                  onClose();
                   if (localStorage) {
                     localStorage.removeItem("mess");
                     router.push("/");
