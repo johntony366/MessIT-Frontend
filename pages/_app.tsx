@@ -3,10 +3,14 @@ import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
 import theme from "../styles/theme";
+import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   return (
-    <>
+    <AnimatePresence mode="wait">
       <Head>
         <title>Messit App</title>
         <meta
@@ -19,6 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
-    </>
+    </AnimatePresence>
   );
 }
