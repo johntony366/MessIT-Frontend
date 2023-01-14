@@ -39,13 +39,13 @@ const MessCard = ({
       animate={animate}
     >
       <CardHeader pb={2}>
-        <Heading size="lg">{meal}</Heading>
+        <Heading fontSize={{ base: "2xl", lg: "3xl" }}>{meal}</Heading>
       </CardHeader>
       <CardBody py={2}>
-        <Text>{menu}</Text>
+        <Text fontSize={{ base: "lg", lg: "xl" }}>{menu}</Text>
       </CardBody>
       <CardFooter pt={2}>
-        <Text>{timing}</Text>
+        <Text fontSize={{ base: "lg", lg: "xl" }}>{timing}</Text>
       </CardFooter>
     </Card>
   );
